@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "196169037210",
+    "firebase_url": "https://burningfirday.firebaseio.com",
+    "project_id": "burningfirday",
+    "storage_bucket": "burningfirday.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:196169037210:android:aeab4344ed502e1f",
+        "android_client_info": {
+          "package_name": "com.gdgkorea.partispot"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "196169037210-e60ms62cholftnf08gkic7f8mfgml8t8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gdgkorea.partispot",
+            "certificate_hash": "849A11372B51F9C68594E382751D46F3677CF26C"
+          }
+        },
+        {
+          "client_id": "196169037210-724gflvmouhh0vejlforafqvqskinq7f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAziAq2TXeGgUdJ7rGVGfG4aXHjVYfUs-4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "196169037210-724gflvmouhh0vejlforafqvqskinq7f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
