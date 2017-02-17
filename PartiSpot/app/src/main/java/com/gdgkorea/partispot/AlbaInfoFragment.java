@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -26,7 +27,21 @@ public class AlbaInfoFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         setHasOptionsMenu(true);
-        view = inflater.inflate(R.layout.fragment_alba_info, container, false);
+
+        //view = inflater.inflate(R.layout.fragment_alba_info, container, false);
+
+        if (view != null) {
+            ViewGroup parent = (ViewGroup) view.getParent();
+            if (parent != null)
+                parent.removeView(view);
+        }
+
+        try{
+            view = inflater.inflate(R.layout.fragment_alba_info, container, false);
+        }
+        catch (InflateException e){
+            //setUpMapIfNeeded();
+        }
 
         initModel();
         initView();
