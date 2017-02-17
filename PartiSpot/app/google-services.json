@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "196169037210-qhkfpmfn7gko9f0qmbeufqqgfluc36b0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gdgkorea.partispot",
+            "certificate_hash": "8217A454E4E2CA045155B77B6CDBE1ACE22B030C"
+          }
+        },
+        {
           "client_id": "196169037210-e60ms62cholftnf08gkic7f8mfgml8t8.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
