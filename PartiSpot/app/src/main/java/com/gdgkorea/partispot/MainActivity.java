@@ -16,14 +16,61 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private BackPressCloseHandler backPressCloseHandler;
+    Toolbar toolbar;
+    FloatingActionButton fab;
+    DrawerLayout drawer;
+    ActionBarDrawerToggle toggle;
+    NavigationView navigationView;
+
+    android.support.v4.app.Fragment fragment;
+    android.support.v4.app.FragmentTransaction ft;
+    String title;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        //startActivity(new Intent(getApplicationContext(), SplashActivity.class));
+
+        initView();
+        initModel();
+        initListener();
+
+        toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+
+        navigationView.setNavigationItemSelectedListener(this);
+
+        // 첫 Fragment를 FindWord로 띄우기
+        //fragment = new FindWordFragment();
+        //ft.replace(R.id.content, fragment).commit();
+    }
+
+    private void initModel() {
+
+        backPressCloseHandler = new BackPressCloseHandler(this);
+        fragment = null;
+        title = getString(R.string.app_name);
+        ft = getSupportFragmentManager().beginTransaction();
+    }
+
+    private void initView() {
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        fab = (FloatingActionButton) findViewById(R.id.fab);
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
+
+        setSupportActionBar(toolbar);
+    }
+
+    private void initListener() {
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -31,15 +78,6 @@ public class MainActivity extends AppCompatActivity
                         .setAction("Action", null).show();
             }
         });
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
     }
 
     @Override
@@ -48,7 +86,8 @@ public class MainActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            //super.onBackPressed();
+            backPressCloseHandler.onBackPressed();
         }
     }
 
@@ -78,23 +117,37 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
+
         int id = item.getItemId();
-
-        if (id == R.id.nav_camera) {
+        ft = getSupportFragmentManager().beginTransaction();
+/*
+        if (id == R.id.nav_findword) {
+            fragment = new FindWordFragment();
+            title = "검색";
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
+        } else if (id == R.id.nav_vocabulary) {
+            fragment = new VocaFragment();
+            title = "단어장";
+        } else if (id == R.id.nav_wordgame) {
+            title = "학습 게임";
+        } else if (id == R.id.nav_setting) {
+            fragment = new SettingFragment();
+            title = "설정";
         } else if (id == R.id.nav_send) {
-
+            fragment = new SendFragment();
+            title = "내보내기";
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (fragment != null) {
+            ft.replace(R.id.content, fragment);
+            ft.commit();
+        }*/
+
+        // set the toolbar title
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(title);
+        }
+
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
