@@ -120,28 +120,25 @@ public class MainActivity extends AppCompatActivity
 
         int id = item.getItemId();
         ft = getSupportFragmentManager().beginTransaction();
-/*
-        if (id == R.id.nav_findword) {
-            fragment = new FindWordFragment();
-            title = "검색";
+
+        if (id == R.id.nav_setAlbaInfo) {
+            fragment = new AlbaInfoFragment();
+            title = "내 정보 관리";
             // Handle the camera action
-        } else if (id == R.id.nav_vocabulary) {
-            fragment = new VocaFragment();
-            title = "단어장";
-        } else if (id == R.id.nav_wordgame) {
-            title = "학습 게임";
-        } else if (id == R.id.nav_setting) {
-            fragment = new SettingFragment();
-            title = "설정";
-        } else if (id == R.id.nav_send) {
-            fragment = new SendFragment();
-            title = "내보내기";
+        } else if (id == R.id.nav_checkAlbaTime) {
+            //fragment = new VocaFragment();
+            title = "아르바이트 시간 관리";
+        } else if (id == R.id.nav_manageStore) {
+            title = "내 점포 관리";
+        } else if (id == R.id.nav_manageAlba) {
+            //fragment = new SettingFragment();
+            title = "아르바이생 관리";
         }
 
         if (fragment != null) {
             ft.replace(R.id.content, fragment);
             ft.commit();
-        }*/
+        }
 
         // set the toolbar title
         if (getSupportActionBar() != null) {
