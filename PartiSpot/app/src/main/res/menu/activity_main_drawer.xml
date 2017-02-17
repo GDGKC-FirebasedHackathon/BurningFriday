@@ -8,6 +8,11 @@
                 android:icon="@drawable/ic_menu_share"
                 android:title="내 정보 관리" />
             <item
+                android:id="@+id/nav_setAlbaTime"
+                android:icon="@drawable/ic_menu_send"
+                android:title="출퇴근 관리" />
+
+            <item
                 android:id="@+id/nav_checkAlbaTime"
                 android:icon="@drawable/ic_menu_send"
                 android:title="아르바이트 시간 관리" />

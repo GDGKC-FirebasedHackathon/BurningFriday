@@ -85,7 +85,6 @@ public class MainActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            //super.onBackPressed();
             backPressCloseHandler.onBackPressed();
         }
     }
@@ -102,9 +101,12 @@ public class MainActivity extends AppCompatActivity
             fragment = new AlbaInfoFragment();
             title = "내 정보 관리";
             // Handle the camera action
+        } else if (id == R.id.nav_setAlbaTime) {
+            fragment = new SetAlbaTimeFragment();
+            title = "출퇴근 관리";
         } else if (id == R.id.nav_checkAlbaTime) {
             //fragment = new VocaFragment();
-            title = "아르바이트 시간 관리";
+            title = "아르바이스 시간 관리";
         } else if (id == R.id.nav_manageStore) {
             title = "내 점포 관리";
         } else if (id == R.id.nav_manageAlba) {
