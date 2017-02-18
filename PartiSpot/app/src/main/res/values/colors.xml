@@ -10,4 +10,13 @@
     <color name="orange">#FF6600</color>
     <color name="grey">#CECECE</color>
 
+    <color name="bg_user_message">#ffffff</color>
+
+    <color name="primary_dark">#0066e6</color>
+    <color name="primary">#0172ff</color>
+    <color name="accent">#232b38</color>
+    <color name="divider">#B6B6B6</color>
+    <color name="text_color">#FFFFFF</color>
+    <color name="text_color_icon">#212121</color>
+
 </resources>
